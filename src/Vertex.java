@@ -1,13 +1,14 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Vertex<V> {
+public class Vertex<V> implements Comparable<Vertex<V>> {
     private V data;
     private Map<Vertex<V>,Double > adjacentVertices;
-
+    private double distance;
     public Vertex(V data){
         this.data= data;
         adjacentVertices = new HashMap<>();
+        distance = 100000000.0;
     }
     public void addAdjacentVertices(Vertex<V> destination, double weight){
         adjacentVertices.put(destination, weight);
@@ -28,4 +29,16 @@ public class Vertex<V> {
         return adjacentVertices;
     }
 
+    public double getDistance(){
+        return distance;
+    }
+    public void setDistance(double distance){
+        this.distance = distance;
+    }
+
+
+    @Override
+    public int compareTo(Vertex<V> o) {
+        return Double.compare(this.distance, o.distance);
+    }
 }

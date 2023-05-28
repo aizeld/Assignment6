@@ -97,6 +97,12 @@ public class WeightedGraph<V> {
         return vertices.get(source).getWeight(vertices.get(dest));///это я помню с урока)))
 
    }
+   public HashMap<V, Vertex<V>> getVertices(){
+     return vertices;
+   }
 
 
+    public Vertex<V> getVertex(V source) {
+     return vertices.get(source);
+    }
 }
